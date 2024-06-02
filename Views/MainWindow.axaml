@@ -3,18 +3,49 @@
         xmlns:vm="using:LLDock.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="60" d:DesignHeight="250"
+        Width="90" Height="{Binding PanelLength}" MinWidth="1"
+        Topmost="True" PointerExited="InputElement_OnPointerExited"
+        PointerEntered="InputElement_OnPointerEntered"
+        SystemDecorations="None" Background="Transparent"
         x:Class="LLDock.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="LLDock">
 
+    <Window.Styles>
+        <Style Selector="Window">
+            <Setter Property="MinWidth" Value="2"></Setter>
+        </Style>
+        
+    </Window.Styles>
+    
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5"
+            Background="#424242" CornerRadius="20"
+            Height="NaN">
+        <Border.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Settings"
+                          Command="{Binding OpenSettingsWindowCommand}"/>
+            </ContextMenu>
+        </Border.ContextMenu>
+        <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5"
+                   Name="WrapPanel">
+            <Button Height="70" Width="70" CornerRadius="15"
+                    Name="Button1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Command="{Binding StartApplicationCommand}"
+                    Background="{Binding ButtonBackColor}">
+                <Image Margin="0" Stretch="Uniform"
+                       Source="D:\standart_folders\Learning\OOP\NZ\Moss\Moss\Assets\logo_moss.ico">
+                </Image>
+            </Button>
+        </WrapPanel>
+    </Border>
 </Window>

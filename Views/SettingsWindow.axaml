@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Background="#424242" Width="500" Height="380"
+        x:Class="LLDock.Views.SettingsWindow"
+        Title="Settings">
+    <TabControl TabStripPlacement="Left" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <TabControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Vertical" Width="150">
+                </StackPanel>
+            </ItemsPanelTemplate>
+        </TabControl.ItemsPanel>
+        <TabItem Header="Add label" Foreground="White">
+            <Grid RowDefinitions="*,*,*" ShowGridLines="True">
+                <DockPanel Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                           Margin="10">
+                    <TextBlock Text="Exe path:" VerticalAlignment="Center" Foreground="White"
+                               DockPanel.Dock="Left" Margin="0,0,10,0"></TextBlock>
+                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                             DockPanel.Dock="Right"></TextBox>
+                </DockPanel>
+                <DockPanel Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                           Margin="10">
+                    <TextBlock Text="Icon path:" VerticalAlignment="Center" Foreground="White"
+                               DockPanel.Dock="Left" Margin="0,0,10,0"></TextBlock>
+                    <TextBox VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                             DockPanel.Dock="Right"></TextBox>
+                </DockPanel>
+                <Button Grid.Row="2" Foreground="White" Content="Add Label"
+                        Width="300" HorizontalAlignment="Center"
+                        Height="60"
+                        VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Button>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
